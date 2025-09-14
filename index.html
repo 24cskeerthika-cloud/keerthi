@@ -97,22 +97,156 @@ href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family
  
     <hr class="my-8 border-gray-200"> 
  
-    <!-- Experience Section --> 
-    <section class="mb-10"> 
-      <h2 class="section-header text-3xl font-bold text-gray-800 mb-6">Experience</h2> 
-      <div class="bg-gray-50 p-6 rounded-2xl shadow-md border-l-4 border-green-500"> 
-        <h3 class="text-xl font-semibold text-green-700 mb-2"> 
-          Part-time Internship in Front end web development at IBM 
-        </h3> 
-        <p class="text-gray-700 leading-relaxed"> 
-          I have successfully completed a valuable part-time online internship in  
-          <b>Front-End Web Development</b> with IBM. This experience provided me with  
-          hands-on exposure to data manipulation, analysis, and visualization. 
-        </p> 
-      </div> 
-    </section> 
- 
-    <!-- Academic Information & Skills Section --> 
-    <section class="mb-10 grid grid-cols-1 md:grid-cols-2 gap-8"> 
-      <!-- Academic Info --> 
-      <div class="bg-gr
+     <!-- Experience Section -->
+        <section class="mb-10">
+            <h2 class="section-header text-3xl font-bold text-gray-800 mb-6">Experience</h2>
+            <div class="bg-gray-50 p-6 rounded-2xl shadow-md border-l-4 border-green-500 transition-transform duration-300 hover:scale-[1.02]">
+                <h3 class="text-xl font-semibold text-green-700 mb-2">Part-time Internship in Front end web development at IBM</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    I have successfully completed a valuable part-time online internship in FRONT END WEB DEVELOPMENT with IBM. This experience provided me with hands-on exposure to data manipulation, analysis, and visualization. I am now equipped with practical skills to interpret data and derive meaningful insights to support business decisions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Academic Information & Skills Section -->
+        <section class="mb-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Academic Info -->
+            <div class="bg-gray-50 p-6 rounded-2xl shadow-md border-l-4 border-blue-500 transition-transform duration-300 hover:scale-[1.02]">
+                <h2 class="section-header text-2xl font-bold text-gray-800 mb-4">Academic Information</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    I am in my second year of the Computer Science program at Akshaya College of Arts and Science. My coursework has given me a strong foundation in computer science fundamentals, data structures, and algorithms, preparing me for a career in tech.
+                </p>
+            </div>
+            
+            <!-- Programming Skills -->
+            <div class="bg-gray-50 p-6 rounded-2xl shadow-md border-l-4 border-orange-500 transition-transform duration-300 hover:scale-[1.02]">
+                <h2 class="section-header text-2xl font-bold text-gray-800 mb-4">Programming Skills</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="skill-tag bg-blue-100 text-blue-800 font-medium px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
+                        C
+                    </span>
+                    <span class="skill-tag bg-green-100 text-green-800 font-medium px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
+                        C++
+                    </span>
+                    <span class="skill-tag bg-yellow-100 text-yellow-800 font-medium px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
+                        Python
+                    </span>
+                    <span class="skill-tag bg-red-100 text-red-800 font-medium px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
+                        Java
+                    </span>
+                </div>
+            </div>
+        </section>
+        
+        <hr class="my-8 border-gray-200">
+        
+        <!-- Final Project Section (Temperature converter) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+    }
+
+    .converter {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input, select {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 85%;
+      padding: 12px;
+      margin-top: 15px;
+      background: #2196f3;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1976d2;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="converter">
+    <h2>🌡 Temperature Converter</h2>
+    <input type="number" id="tempInput" placeholder="Enter temperature">
+    <select id="unit">
+      <option value="C">Celsius (°C)</option>
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="K">Kelvin (K)</option>
+    </select>
+    <button onclick="convertTemp()">Convert</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convertTemp() {
+      let temp = parseFloat(document.getElementById("tempInput").value);
+      let unit = document.getElementById("unit").value;
+      let result = "";
+
+      if (isNaN(temp)) {
+        result = "⚠ Please enter a valid number!";
+      } else {
+        if (unit === "C") {
+          result = `
+            ${temp} °C = ${(temp * 9/5 + 32).toFixed(2)} °F  
+            | ${(temp + 273.15).toFixed(2)} K
+          `;
+        } else if (unit === "F") {
+          result = `
+            ${temp} °F = ${((temp - 32) * 5/9).toFixed(2)} °C  
+            | ${(((temp - 32) * 5/9) + 273.15).toFixed(2)} K
+          `;
+        } else if (unit === "K") {
+          result = `
+            ${temp} K = ${(temp - 273.15).toFixed(2)} °C  
+            | ${((temp - 273.15) * 9/5 + 32).toFixed(2)} °F
+          `;
+        }
+      }
+
+      document.getElementById("result").innerHTML = result.replace(/\n/g, "<br>");
+    }
+  </script>
+</body>
+</html>
